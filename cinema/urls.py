@@ -11,8 +11,7 @@ router.register("movies", MovieViewSet)
 cinema_hall_list = CinemaHallViewSet.as_view(
     actions={
         "get": "list",
-        "post": "create"
-    }
+        "post": "create"}
 )
 cinema_hall_detail = CinemaHallViewSet.as_view(
     actions={

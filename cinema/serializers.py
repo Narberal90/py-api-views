@@ -5,10 +5,12 @@ from cinema.models import Movie, Actor, Genre, CinemaHall
 
 class MovieSerializer(serializers.ModelSerializer):
     actors = serializers.PrimaryKeyRelatedField(
-        many=True, queryset=Actor.objects.all()
+        many=True,
+        queryset=Actor.objects.all()
     )
     genres = serializers.PrimaryKeyRelatedField(
-        many=True, queryset=Genre.objects.all()
+        many=True,
+        queryset=Genre.objects.all()
     )
 
     class Meta:
@@ -67,8 +69,7 @@ class CinemaHallSerializer(serializers.Serializer):
         instance.name = validated_data.get("name", instance.name)
         instance.rows = validated_data.get("rows", instance.rows)
         instance.seats_in_row = validated_data.get(
-            "seats_in_row",
-            instance.seats_in_row
+            "seats_in_row", instance.seats_in_row
         )
 
         instance.save()
